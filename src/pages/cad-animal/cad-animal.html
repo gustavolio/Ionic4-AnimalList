@@ -7,6 +7,11 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Adicionar Animal</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="closeModal()">
+        <ion-icon name="close"></ion-icon> 
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -14,27 +19,28 @@
   <ion-list>
     <ion-item>
       <ion-label floating>Nome</ion-label>
-      <ion-input type="text" [(ngModel)]="nome"></ion-input>
+      <ion-input type="text" #nome></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Numeracao</ion-label>
-      <ion-input type="number" [(ngModel)]="numeracao"></ion-input>
+      <ion-input type="number" #numeracao></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Sexo</ion-label>
-      <ion-input type="text" [(ngModel)]="sexo"></ion-input>
+      <ion-input type="text" #sexo></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Raça</ion-label>
-      <ion-input type="text" [(ngModel)]="raca"></ion-input>
+      <ion-input type="text" #raca></ion-input>
     </ion-item>
 
   </ion-list>
 
   <ion-buttons>
-    <button ion-button (click)="cadastrarAnimal()">Cadastrar</button>
+    <button ion-button (click)="cadastrarAnimal(nome.value, numeracao.value, sexo.value, raca.value)">Cadastrar</button>
+    <button ion-button (click)="closeModal()">Cancelar</button>
   </ion-buttons>
 </ion-content>

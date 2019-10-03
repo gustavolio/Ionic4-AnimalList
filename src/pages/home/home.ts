@@ -15,25 +15,25 @@ export class HomePage {
         "nome": "Reginaldo",
         "numeracao": "0",
         "sexo": "masculino",
-        "raça": "pincher"
+        "raca": "pincher"
       },
       {
         "nome": "Adalberto",
         "numeracao": "1",
         "sexo": "masculino",
-        "raça": "boxer"
+        "raca": "boxer"
       },
       {
         "nome": "Creuza",
         "numeracao": "2",
         "sexo": "feminino",
-        "raça": "poodle"
+        "raca": "poodle"
       },
       {
         "nome": "Elineuza",
         "numeracao": "3",
         "sexo": "feminino",
-        "raça": "pincher"
+        "raca": "pincher"
       }
     ]
 
@@ -44,7 +44,13 @@ export class HomePage {
     urlModalCadAnimal.present();
 
     urlModalCadAnimal.onDidDismiss(data => {
-      console.log(data);
+      if(data === undefined){
+        console.log("Adicao Cancelada ou Dados Indefinidos");
+      } else {
+        //Adiciona um item quando o modal de cadastro fecha
+        this.animalList = this.animalList.concat(data.animal);
+        console.log("Item adicionado ao array!!");
+      }
     });
   }
 }

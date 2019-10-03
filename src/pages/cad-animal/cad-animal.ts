@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
 /**
  * Generated class for the CadAnimalPage page.
@@ -15,15 +15,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CadAnimalPage {
 
-  nome: string;
-  numeracao: number;
-  sexo: string;
-  raca: string;
-
-  arrayAnimal: Array<Object>;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.arrayAnimal = navParams.get('animalList')
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
+    
   }
 
   ionViewDidLoad() {
@@ -31,8 +24,21 @@ export class CadAnimalPage {
   }
   
 
-  cadastrarAnimal():void{
-    console.log(this.arrayAnimal);
+  cadastrarAnimal(nome, numeracao, sexo, raca):void{
+
+    let animal = {
+      "nome":nome,
+      "numeracao": numeracao,
+      "sexo": sexo,
+      "raca": raca
+    }
+
+    this.viewCtrl.dismiss({animal});
+    console.log("Dados capturados dos campos de textp...");
+  }
+
+  closeModal(){
+    this.viewCtrl.dismiss();
   }
 
 }
