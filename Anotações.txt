@@ -1,6 +1,6 @@
 -- MyAnimalList--
 
-@ Tela de Listagem de animais.
+1) Tela de Listagem de animais.
 	@ Lista de Animais (Array do Objeto).
 		- Função Para Editar.
 		- Remover e Cancelar.
@@ -12,8 +12,19 @@
 			@ Passar informação para a página Home;
 			@ Adicionar Novo Animal;
 			@ Atualizar Lista de Animais;
-	
 
-- Busca dos animais da lista <ion-searchbar>.
-- ActionSheet com opções do animal (Editar, Remover e Cancelar).
-- Tela de Informações do Animal (nome/numeração, sexo e raça).
+Melhorias (Função 1):
+	- Verificar os dados antes de salvar (evitar vazios);
+	- select (para a propriedade sexo);
+	- select (para a propriedade raça);
+
+2) Busca dos animais da lista <ion-searchbar>.
+	- Inserir Search Bar na interface;
+	- Adicionar funcao de busca;
+		- Salvar Lista Sem Filtro;
+		- Exibir Lista com Filtro;
+		- Se não tiver nada (voltar para lista sem filtro);
+
+3) ActionSheet com opções do animal (Editar, Remover e Cancelar).
+
+4) Tela de Informações do Animal (nome/numeração, sexo e raça).

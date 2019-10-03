@@ -8,6 +8,7 @@ import { NavController , ModalController } from 'ionic-angular';
 export class HomePage {
 
   public animalList: Array<Object> = [];
+  public noSearchList: Array<Object> = [];
 
   constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
     this.animalList = [
@@ -37,6 +38,8 @@ export class HomePage {
       }
     ]
 
+    this.noSearchList = this.animalList;
+
   }//fim construtor
 
   cadastrarAnimal(){
@@ -49,8 +52,16 @@ export class HomePage {
       } else {
         //Adiciona um item quando o modal de cadastro fecha
         this.animalList = this.animalList.concat(data.animal);
+        this.noSearchList = this.animalList;
         console.log("Item adicionado ao array!!");
       }
     });
+  }
+
+  getItems(){
+    this.animalList = this.noSearchList.filter((animal) => {
+      return animal.nome.toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
+    });
+
   }
 }
