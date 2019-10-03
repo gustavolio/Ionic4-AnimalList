@@ -1,0 +1,48 @@
+<!--
+  Generated template for the CadAnimalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Adicionar Animal</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <h2>Nome:</h2>
+    </ion-item>
+    <ion-item>
+      <ion-input  type="text" [(ngModel)]="nome"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      	<h2>Numeracao:</h2>
+    </ion-item>
+    <ion-item>
+      <ion-input  type="number" [(ngModel)]="numeracao"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      	<h2>Sexo:</h2>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="sexo"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      	<h2>Raça:</h2>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="raca"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-buttons>
+    <button ion-button>Cadastrar</button>
+  </ion-buttons>
+</ion-content>
