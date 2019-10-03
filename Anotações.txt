@@ -14,16 +14,13 @@
 			@ Atualizar Lista de Animais;
 
 Melhorias (Função 1):
-	- Verificar os dados antes de salvar (evitar vazios);
-	- select (para a propriedade sexo);
-	- select (para a propriedade raça);
+	@ Verificar os dados antes de salvar (evitar vazios);
+	@ select (para a propriedade sexo);
+	@ select (para a propriedade raça);
 
 2) Busca dos animais da lista <ion-searchbar>.
-	- Inserir Search Bar na interface;
-	- Adicionar funcao de busca;
-		- Salvar Lista Sem Filtro;
-		- Exibir Lista com Filtro;
-		- Se não tiver nada (voltar para lista sem filtro);
+	@Inserir Search Bar na interface;
+	@ Adicionar funcao de busca;
 
 3) ActionSheet com opções do animal (Editar, Remover e Cancelar).
 

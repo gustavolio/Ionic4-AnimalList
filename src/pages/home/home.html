@@ -13,16 +13,16 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-searchbar 
+    [(ngModel)]="searchTerm"
+    (ionInput)="getItems()"
+    placeholder="Digite Aqui...">
+  </ion-searchbar>
+
   <ion-card>
-    <ion-card-header>
+    <ion-card-header class='title_lis_animals'>
       Animais
     </ion-card-header>
-
-    <ion-searchbar 
-      [(ngModel)]="searchTerm"
-      (ionInput)="getItems()"
-      placeholder="Digite Aqui...">
-    </ion-searchbar>
 
     <ion-list>
       <button ion-item *ngFor="let animal of animalList" (click)='animalSelected(animal)'>
