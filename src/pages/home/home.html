@@ -25,7 +25,7 @@
     </ion-card-header>
 
     <ion-list>
-      <button ion-item *ngFor="let animal of animalList" (click)='animalSelected(animal)'>
+      <button ion-item *ngFor="let animal of animalList" (click)='showInformation(animal)'>
         <h2>{{animal.nome}} </h2>
         <p>{{animal.numeracao}}</p>
       </button>

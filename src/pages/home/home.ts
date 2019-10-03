@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController , ModalController } from 'ionic-angular';
+import { NavController , ModalController, ActionSheetController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -10,7 +10,7 @@ export class HomePage {
   public animalList: Array<Object> = [];
   public noSearchList: Array<Object> = [];
 
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public modalCtrl: ModalController, public actionSheetCtrl: ActionSheetController) {
     this.animalList = [
       {
         "nome": "Reginaldo",
@@ -63,5 +63,42 @@ export class HomePage {
       return animal.nome.toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
     });
 
+  }
+
+  // showOptions(){
+  //   let actionSheet = this.actionSheetCtrl.create({
+  //     title: 'Animal Options',
+  //     buttons: [
+  //       {
+  //         text: 'Editar Informações',
+  //         handler: () => {
+  //         }
+  //       },
+  //       {
+  //         text: 'Remover',
+  //         handler: () => {
+  //         }
+  //       },
+  //       {
+  //         text: 'Cancelar',
+  //         role: 'cancel',
+  //         handler: () => {
+
+  //         }
+  //       }
+  //     ]
+  //   });
+
+  //   actionSheet.present();
+  // }
+
+
+  showInformation(animal){
+    let urlModalInfoAnimal = this.modalCtrl.create("AnimalInformationPage", {animal: animal});
+    urlModalInfoAnimal.present();
+
+    urlModalInfoAnimal.onDidDismiss(data => {
+      console.log("Teste");
+    });
   }
 }
