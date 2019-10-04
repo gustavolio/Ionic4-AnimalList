@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, AlertController } from 'ionic-angular';
+import { notImplemented } from '@angular/core/src/render3/util';
 
 /**
- * Generated class for the CadAnimalPage page.
+ * Generated class for the EditarAnimalPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,37 +11,43 @@ import { IonicPage, NavController, NavParams, ViewController, AlertController } 
 
 @IonicPage()
 @Component({
-  selector: 'page-cad-animal',
-  templateUrl: 'cad-animal.html',
+  selector: 'page-editar-animal',
+  templateUrl: 'editar-animal.html',
 })
-export class CadAnimalPage {
 
-  constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              public viewCtrl: ViewController,
-              public alertCtrl: AlertController) {
-    
+
+
+export class EditarAnimalPage {
+
+  public animal: {
+    nome: "",
+    numeracao: "",
+    sexo: "",
+    raca: "" 
+  };
+
+  constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
+    this.animal = this.navParams.get("animal");
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CadAnimalPage');
+    console.log('ionViewDidLoad EditarAnimalPage');
   }
-  
 
-  cadastrarAnimal(nome, numeracao, sexo, raca):void{
+  editarAnimal(nome, numeracao, sexo, raca){
+    //Criar função para receber os dados e editar o animal.
     if(nome === "" || numeracao === "" || sexo === undefined || raca === undefined){
       this.alertDadosInvalidos();
       this.viewCtrl.dismiss();
     } else {
       let animal = {
-        "nome": nome,
+        "nome":nome,
         "numeracao": numeracao,
         "sexo": sexo,
         "raca": raca
       }
 
       this.viewCtrl.dismiss({animal});
-      console.log("Dados capturados dos campos de textp...");
     }//fim else
   }//fim cadastrarAnimal
 

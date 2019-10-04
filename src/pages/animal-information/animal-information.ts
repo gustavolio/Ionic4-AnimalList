@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { notImplemented } from '@angular/core/src/render3/util';
 
 /**
  * Generated class for the AnimalInformationPage page.
@@ -15,11 +16,27 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AnimalInformationPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public animal: {
+    nome: "",
+    numeracao: "",
+    sexo: "",
+    raca: ""
+  };
+
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public viewCtrl: ViewController) {
+
+    this.animal = navParams.get("animal");
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AnimalInformationPage');
   }
+
+  closeModal() {
+    this.viewCtrl.dismiss();
+  }//fim closeModal
 
 }

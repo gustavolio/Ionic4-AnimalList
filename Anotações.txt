@@ -18,22 +18,22 @@ Melhorias (Função 1):
 	@ select (para a propriedade sexo);
 	@ select (para a propriedade raça);
 
-2) Busca dos animais da lista <ion-searchbar>.
+2)@ Busca dos animais da lista <ion-searchbar>.
 	@Inserir Search Bar na interface;
 	@ Adicionar funcao de busca;
 
-3) ActionSheet com opções do animal (Editar, Remover e Cancelar).
+3)@ ActionSheet com opções do animal (Editar, Remover e Cancelar).
 	@ Abrir Action Sheet ao clicar no botão dentro da opção do animal;
 		@ Exibir opções:
-			- Editar:
-				-Abrir modal cad-animal;
-				-Preencher as Informações com as atuais;
-				-Botão de Salvar;
-				-Botão de Cancelar;
+			@ Editar:
+				@Novo modal editar animal;
+				@Preencher as Informações com as atuais;
+				@Botão de Salvar;
+				@Botão de Cancelar;
 			- Remover;
 				-Exibir Alerta de Confirmaçao;
 					- Opção para cancelar;
 				-Remover Animal do Array;
 			@ Cancelar (Retorna a pánina inicial);
 
-4) Tela de Informações do Animal (nome/numeração, sexo e raça) ao clicar no animal.
+4)@ Tela de Informações do Animal (nome/numeração, sexo e raça) ao clicar no animal.

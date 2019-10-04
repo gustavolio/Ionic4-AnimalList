@@ -6,8 +6,12 @@
 -->
 <ion-header>
   <ion-navbar>
-    <!-- Adicionar nome do animal -->
-    <ion-title>Nome do Animal</ion-title>
+    <ion-title>{{animal.nome}}</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -15,21 +19,18 @@
   <ion-list>
     <ion-item>
       <p>Numeracao</p>
-      <!-- Inserir Numero Aqui -->
-      <p>1234</p>
+      <p>{{animal.numeracao}}</p>
     </ion-item>
     <ion-item>
-        <p>Sexo</p>
-        <!-- Inserir Sexo Aqui -->
-        <p>macho</p>
-      </ion-item>
+      <p>Sexo</p>
+      <p>{{animal.sexo}}</p>
+    </ion-item>
     <ion-item>
-        <p>Raça</p>
-        <!-- Inserir Raça Aqui -->
-        <p>1234</p>
-      </ion-item>
-      
+      <p>Raça</p>
+      <p>{{animal.raca}}</p>
+    </ion-item>
+
   </ion-list>
-  
+
 
 </ion-content>

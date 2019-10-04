@@ -5,18 +5,15 @@
     </ion-title>
 
     <ion-buttons end>
-        <button ion-button icon-only (click)="cadastrarAnimal()">
-          <ion-icon name="add" [style.color]="orange"></ion-icon>
-        </button>
-      </ion-buttons>
+      <button ion-button icon-only (click)="cadastrarAnimal()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-searchbar 
-    [(ngModel)]="searchTerm"
-    (ionInput)="getItems()"
-    placeholder="Digite Aqui...">
+  <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="getItems()" placeholder="Digite Aqui...">
   </ion-searchbar>
 
   <ion-card>
@@ -25,10 +22,22 @@
     </ion-card-header>
 
     <ion-list>
-      <button ion-item *ngFor="let animal of animalList" (click)='showInformation(animal)'>
-        <h2>{{animal.nome}} </h2>
-        <p>{{animal.numeracao}}</p>
-      </button>
+      <div ion-item *ngFor="let animal of animalList" (click)='showInformation(animal)'>
+          <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <h2>{{animal.nome}} </h2>
+                  <p>{{animal.numeracao}}</p>
+                </ion-col>
+                <ion-col>
+                  <!-- <button end ion-button icon-only (click)="editarAnimal(animal, $event)"> -->
+                  <button end ion-button icon-only (click)="showOptions(animal, $event)">
+                    <ion-icon name="more"></ion-icon>
+                  </button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+      </div>
     </ion-list>
 
   </ion-card>
