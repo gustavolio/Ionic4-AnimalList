@@ -27,7 +27,7 @@ export class EditarAnimalPage {
   };
 
   constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
-    this.animal = this.navParams.get("animal");
+    this.animal = JSON.parse(JSON.stringify(this.navParams.get("animal")));
   }
 
   ionViewDidLoad() {
@@ -46,7 +46,8 @@ export class EditarAnimalPage {
         "sexo": sexo,
         "raca": raca
       }
-
+      
+      console.log("Testando passagem de parametros: ", animal);
       this.viewCtrl.dismiss({animal});
     }//fim else
   }//fim cadastrarAnimal

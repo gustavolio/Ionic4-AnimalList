@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController , ModalController, ActionSheetController } from 'ionic-angular';
+import { NavController , ModalController, ActionSheetController, AlertController } from 'ionic-angular';
+import { animateChild } from '@angular/core/src/animation/dsl';
 
 @Component({
   selector: 'page-home',
@@ -13,7 +14,8 @@ export class HomePage {
   constructor(
     public navCtrl: NavController,
     public modalCtrl: ModalController,
-    public actionSheetCtrl: ActionSheetController) {
+    public actionSheetCtrl: ActionSheetController,
+    public alertCtrl: AlertController) {
     this.animalList = [
       {
         "nome": "Reginaldo",
@@ -69,20 +71,23 @@ export class HomePage {
       if(data === undefined){
         console.log("Adicao Cancelada ou Dados Indefinidos");
       } else {
-        animal = data.animal;
-        console.log("Item adicionado ao array!!");
-      }
+        var alteracoes = data.animal;
+         animal.nome = alteracoes.nome;
+        animal.numeracao = alteracoes.numeracao;
+        animal.sexo = alteracoes.sexo;
+        animal.raca = alteracoes.raca;
+        this.noSearchList = this.animalList;
+      }     
     });
-
   }
+  
   
 
   getItems(){
+    
     this.animalList = this.noSearchList.filter((animal) => {
       return animal.nome.toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
     });
-
-   
 
   }
 
@@ -99,7 +104,9 @@ export class HomePage {
         },
         {
           text: 'Remover',
-          handler: () => {
+          handler: () => {  
+            this.verificarRemocao(animal);
+
           }
         },
         {
@@ -113,6 +120,36 @@ export class HomePage {
     });
 
     actionSheet.present();
+  }
+
+  verificarRemocao(animal){
+    let alert = this.alertCtrl.create({
+      title: "Atenção!",
+      message: "Deseja remover " + animal.nome,
+      buttons: [
+        {
+          text: "Cancel",
+          role: "cancel",
+          handler: () => {
+            console.log("Remocao cancelada");
+          }
+        },{
+          text: "Ok",
+          handler: () => {
+            this.animalList = this.removerAnimal(animal);
+            this.noSearchList = this.animalList;
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
+  //Retorna um array sem o elemento passado como parametro.
+  removerAnimal(animal){
+    return this.animalList.filter(function(elemento) {
+      return elemento.nome != animal.nome;
+    });
   }
 
 

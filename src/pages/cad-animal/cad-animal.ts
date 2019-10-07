@@ -28,6 +28,7 @@ export class CadAnimalPage {
   
 
   cadastrarAnimal(nome, numeracao, sexo, raca):void{
+    console.log("Verificando Cadastro: ", nome, " ", numeracao, " ", sexo, " ", raca);
     if(nome === "" || numeracao === "" || sexo === undefined || raca === undefined){
       this.alertDadosInvalidos();
       this.viewCtrl.dismiss();
@@ -40,7 +41,6 @@ export class CadAnimalPage {
       }
 
       this.viewCtrl.dismiss({animal});
-      console.log("Dados capturados dos campos de textp...");
     }//fim else
   }//fim cadastrarAnimal
 

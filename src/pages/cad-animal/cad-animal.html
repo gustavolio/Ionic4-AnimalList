@@ -29,15 +29,15 @@
 
     <ion-item>
       <ion-label floating>Sexo</ion-label>
-      <ion-select [ngModel]="sexo">
-        <ion-option value="m">macho</ion-option>
-        <ion-option value="f">femea</ion-option>
+      <ion-select #sexo>
+        <ion-option value="macho">macho</ion-option>
+        <ion-option value="femea">femea</ion-option>
       </ion-select>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Raça</ion-label>
-      <ion-select [(ngModel)]="raca">
+      <ion-select #raca>
         <ion-option value="pincher">pincher</ion-option>
         <ion-option value="poodle">poodle</ion-option>
         <ion-option value="boxer">boxer</ion-option>
@@ -47,7 +47,7 @@
   </ion-list>
 
   <ion-buttons>
-    <button ion-button (click)="cadastrarAnimal(nome.value, numeracao.value, sexo, raca)">Cadastrar</button>
+    <button ion-button (click)="cadastrarAnimal(nome.value, numeracao.value, sexo.value, raca.value)">Cadastrar</button>
     <button ion-button (click)="closeModal()">Cancelar</button>
   </ion-buttons>
 </ion-content>
