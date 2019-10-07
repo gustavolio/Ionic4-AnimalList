@@ -84,8 +84,7 @@ export class HomePage {
   
 
   getItems(){
-    
-    this.animalList = this.noSearchList.filter((animal) => {
+    this.animalList = this.noSearchList.filter(function(animal: any) {
       return animal.nome.toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
     });
 
@@ -147,7 +146,7 @@ export class HomePage {
 
   //Retorna um array sem o elemento passado como parametro.
   removerAnimal(animal){
-    return this.animalList.filter(function(elemento) {
+    return this.animalList.filter(function(elemento: any) {
       return elemento.nome != animal.nome;
     });
   }
