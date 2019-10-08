@@ -10,6 +10,7 @@ export class HomePage {
 
   public animalList: Array<Object> = [];
   public noSearchList: Array<Object> = [];
+  public searchTerm;
 
   constructor(
     public navCtrl: NavController,
@@ -80,14 +81,21 @@ export class HomePage {
       }     
     });
   }
-  
-  
 
   getItems(){
-    this.animalList = this.noSearchList.filter(function(animal: any) {
-      return animal.nome.toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
-    });
-
+    this.animalList = this.noSearchList;
+    let lista = [];
+    
+    for(let animal of this.animalList){
+      console.log("Comparando: ", animal['nome'].toLowerCase(), this.searchTerm.toLowerCase());
+      console.log("Verificando: ", animal['nome'].toLowerCase().includes(this.searchTerm.toLowerCase()));
+      if(animal['nome'].toLowerCase().includes(this.searchTerm.toLowerCase())){
+        lista.push(animal);
+      }
+    }
+    console.log("Lista de Pesquisa: ",lista);
+    this.animalList = lista;
+    console.log("Ultimo Termo de Pesquisa: ", this.searchTerm);
   }
 
   showOptions(animal, ev: any){
